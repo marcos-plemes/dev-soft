@@ -1,0 +1,20 @@
+.transformRotate0 {
+  transition: .3s all;
+  transform: rotate(0);
+}
+
+.transformRotate90 {
+  transition: .3s all;
+  transform: rotate(90deg);
+}
+
+.transitionSubItensClose {
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height .3s ease-in;
+}
+
+.transitionSubItensOpen {
+  transition: max-height .3s ease-out;
+  overflow: hidden;
+}

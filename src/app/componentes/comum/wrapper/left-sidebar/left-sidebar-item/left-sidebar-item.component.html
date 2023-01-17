@@ -1,0 +1,58 @@
+<div class="sidebar-left"
+  data-simplebar
+  style="height: 100%;">
+
+  <ul class="nav sidebar-inner"
+    id="sidebar-menu">
+
+    <ng-template ngFor
+      let-item
+      [ngForOf]="itens">
+
+      <li class="active"
+        *ngIf="item.rota">
+
+        <a class="sidenav-item-link"
+          routerLink="{{item.rota}}">
+          <mat-icon>{{item.icon}}</mat-icon>
+          <span class="nav-text">{{item.nome}}</span>
+        </a>
+
+      </li>
+
+      <li class="active"
+        *ngIf="item.subItens">
+
+        <a class="sidenav-item-link"
+          (click)="item.mostrarSubItens = !item.mostrarSubItens">
+          <mat-icon>{{item.icon}}</mat-icon>
+          <span class="nav-text">{{item.nome}}</span>
+          <mat-icon [ngClass]="{'transformRotate90': item.mostrarSubItens,
+            'transformRotate0': !item.mostrarSubItens}">keyboard_arrow_right</mat-icon>
+        </a>
+
+        <ul [class.transitionSubItensClose]="!item.mostrarSubItens"
+          [class.transitionSubItensOpen]="item.mostrarSubItens"
+          [ngStyle]="{'max-height': item.mostrarSubItens ? 40 * item.subItens.length + 'px':'0px'}">
+          <div class="sub-menu">
+            <li *ngFor="let subItem of item.subItens">
+              <a class="sidenav-item-link"
+                routerLink="{{subItem.rota}}">
+                <span class="nav-text">{{subItem.nome}}</span>
+              </a>
+            </li>
+          </div>
+        </ul>
+
+      </li>
+
+      <li class="section-title"
+        *ngIf="item.secao">
+        {{item.secao}}
+      </li>
+
+    </ng-template>
+
+  </ul>
+
+</div>
