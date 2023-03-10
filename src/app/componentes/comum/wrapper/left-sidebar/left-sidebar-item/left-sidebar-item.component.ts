@@ -33,7 +33,7 @@ export class LeftSidebarItemComponent {
       ]
     },
     {
-      secao: 'teste',
+      secao: 'teste 2',
     }
 
 
